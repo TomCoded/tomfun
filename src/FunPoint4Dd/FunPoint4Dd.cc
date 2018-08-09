@@ -1,10 +1,10 @@
 // FunPoint4Dd.cc (C) 2002 Tom White
 
 #include <Point4Dd.h>
-#include <FunNode/FunNode.h>
-#include <SumFunNode/SumFunNode.h>
-#include <MultFunNode/MultFunNode.h>
-#include <NumFunNode/NumFunNode.h>
+#include <FunNode.h>
+#include <SumFunNode.h>
+#include <MultFunNode.h>
+#include <NumFunNode.h>
 #include "FunPoint4Dd.h"
 
 

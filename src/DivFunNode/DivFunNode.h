@@ -4,7 +4,7 @@
 //does leftnode / rightnode
 //returns leftnode / 0.00001 on divide by zero
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class DivFunNode : public FunNode
 {

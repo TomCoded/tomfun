@@ -3,7 +3,7 @@
 //MultFunNode.h (C) 2002 Tom White
 //multiplies two nodes
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class MultFunNode : public FunNode
 {

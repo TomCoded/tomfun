@@ -3,7 +3,7 @@
 //NumFunNode.h (C) 2002 Tom White
 //holds the final number node, for a double
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class NumFunNode : public FunNode
 {

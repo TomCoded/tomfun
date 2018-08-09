@@ -18,7 +18,7 @@ CCFILES = $(FUNCCS)
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(CCFILES:.cc=.o)))
 #($OBJSFROM:$(OBJSFROM):$(SRCDIR)/$(OBJSFROM))
 
-INCLDIRS = -I$(SRCDIR) -I$(INCDIR)
+INCLDIRS = -I$(SRCDIR) -I$(INCDIR) $(addprefix -I,$(dir $(CCFILES)))
 
 #CC = g++
 

@@ -3,7 +3,7 @@
 //SinFunNode.h (C) 2002 Tom White
 //returns sin(node)
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class SinFunNode : public FunNode
 {

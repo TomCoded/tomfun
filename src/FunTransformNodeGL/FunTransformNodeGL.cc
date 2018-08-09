@@ -5,7 +5,7 @@
 #include "FunTransformNodeGL.h"
 #include <string.h>
 #include <functions/functions.h>
-#include <TransformMaker/TransformMaker.h>
+#include <TransformMaker.h>
 #include <Transform4Dd.h>
 #include <GL/glut.h>
 #include <Camera/Camera.h>

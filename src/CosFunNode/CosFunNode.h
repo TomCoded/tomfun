@@ -1,9 +1,9 @@
 #ifndef COSFUNNODE_H_
 #define COSFUNNODE_H_
-//CosFunNode.h (C) 2002 Tom White
+//CosFunNode.h (C) Tom White
 //returns cos(childNode)
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class CosFunNode : public FunNode
 {

@@ -3,7 +3,7 @@
 //SumFunNode.h (C) 2002 Tom White
 //sums two nodes
 
-#include <FunNode/FunNode.h>
+#include <FunNode.h>
 
 class SumFunNode : public FunNode
 {
