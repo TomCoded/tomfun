@@ -7,7 +7,7 @@ include Funs.mak
 
 SRCDIR = src
 OBJDIR = obj
-BINDIR = bin
+BINDIR = lib
 TARGET = lib/libTomFun.a
 INCDIR = inc
 
@@ -18,12 +18,13 @@ CCFILES = $(FUNCCS)
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(CCFILES:.cc=.o)))
 #($OBJSFROM:$(OBJSFROM):$(SRCDIR)/$(OBJSFROM))
 
-INCLDIRS = -I$(SRCDIR) -I$(INCDIR) $(addprefix -I,$(dir $(CCFILES)))
+INCLDIRS = -I$(SRCDIR) -I$(INCDIR) $(addprefix -I$(SRCDIR)/,$(dir $(CCFILES)))
 
 #CC = g++
 
 #build the library
 $(TARGET): $(OBJS)
+	mkdir -p $(BINDIR)
 	ar r $@ $?
 	chmod 755 $@
 	ranlib $@
@@ -49,6 +50,7 @@ mrproper: clean
 	rm -f config.h config.mak
 
 clean:	
+	rm -f $(TARGET)
 	rm -rf */*.o
 
 
