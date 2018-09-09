@@ -32,6 +32,7 @@ $(TARGET): $(OBJS)
 
 #.cc.o:
 $(OBJDIR)/%.o: $(SRCDIR)/%/*.cc
+	mkdir -p $(OBJDIR)
 	$(CC) $(CCFLAGS) -c -o $@ $(filter-out %Test.cc,$^) $(INCLDIRS)
 
 # install the library
