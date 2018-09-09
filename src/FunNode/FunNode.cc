@@ -101,36 +101,43 @@ std::ostream& operator<<(std::ostream& o,  FunNode& f)
   return f.out(o);
 }
 
+inline void skipParenthetical(std::string &szFunction, int &nPlace, int &nLen) {
+  if(szFunction[nPlace]=='(')
+    {
+      int inParen=1;
+      nPlace++;
+      while(inParen)
+	{
+	  if(szFunction[nPlace]==')')
+	    inParen--;
+	  else if(szFunction[nPlace]=='(')
+	    inParen++;
+	  nPlace++;
+	}
+      if(nPlace==nLen) nPlace--;
+    }
+}
+
 FunNode * FunNode::parseString(std::string szFunction)
 { //doesn't support - at beginning of string
   int nLen = szFunction.length();
   int nPlace=0;
   FunNode * leftNode;
   FunNode * rightNode;
+
   if(szFunction[0]=='(') //we need to evaluate a parenthesized
 			 //expression
     {
-      int nLast;
-      for(nLast=0;szFunction[nLast]!=')';nLast++);
-      //nLast is now ')' location
+      if(szFunction[szFunction.length()-1]!=')') {
+	std::cerr << "Warning: Attempting to evaluate parenthetical expression but last character in string is not closing paren."
+		  << std::endl;
+      }
       return parseString(szFunction.substr(1,szFunction.length()-1));
     }
   while(nPlace<nLen)
     { //find lowest priority operator
-      if(szFunction[nPlace]=='(')
-	{
-	  int inParen=1;
-	  nPlace++;
-	  while(inParen)
-	    {
-	      if(szFunction[nPlace]==')')
-		inParen--;
-	      else if(szFunction[nPlace]=='(')
-		inParen++;
-	      nPlace++;
-	    }
-	  if(nPlace==nLen) nPlace--;
-	}
+      //so skip parenthetical expressions
+      skipParenthetical(szFunction,nPlace,nLen);
       if(szFunction[nPlace]=='+')
 	{ //do additions last; so they are at the root node
 	  leftNode = parseString(szFunction.substr(0,nPlace));
@@ -151,20 +158,7 @@ FunNode * FunNode::parseString(std::string szFunction)
   nPlace=0;
   while(nPlace<nLen)
     {
-      if(szFunction[nPlace]=='(')
-	{
-	  int inParen=1;
-	  nPlace++;
-	  while(inParen)
-	    {
-	      if(szFunction[nPlace]==')')
-		inParen--;
-	      if(szFunction[nPlace]=='(')
-		inParen++;
-	      nPlace++;
-	    }
-	  if(nPlace==nLen) nPlace--;
-	}
+      skipParenthetical(szFunction,nPlace,nLen);
       if(szFunction[nPlace]=='*')
 	{
 	  leftNode = parseString(szFunction.substr(0,nPlace));
@@ -182,20 +176,7 @@ FunNode * FunNode::parseString(std::string szFunction)
   //multiplication, division not found.  Move on to powers
   for(nPlace=0; nPlace<nLen; nPlace++)
     {
-      if(szFunction[nPlace]=='(')
-	{
-	  int inParen=1;
-	  nPlace++;
-	  while((inParen)&&(nPlace<nLen))
-	    {
-	      if(szFunction[nPlace]==')')
-		inParen--;
-	      if(szFunction[nPlace]=='(')
-		inParen++;
-	      nPlace++;
-	    }
-	  if(nPlace==nLen) nPlace--;
-	}
+      skipParenthetical(szFunction,nPlace,nLen);
       if(szFunction[nPlace]=='^')
 	{
 	  leftNode = parseString(szFunction.substr(0,nPlace));
@@ -206,19 +187,7 @@ FunNode * FunNode::parseString(std::string szFunction)
   //powers not found, move onto sin & cosine
   for(nPlace=0; nPlace < nLen; nPlace++)
     {
-      if(szFunction[nPlace]=='(')
-	{
-	  int inParen=1;
-	  nPlace++;
-	  while(inParen)
-	    {
-	      if(szFunction[nPlace]=='(')
-		inParen++;
-	      else if(szFunction[nPlace]==')')
-		inParen--;
-	      nPlace++;
-	    }
-	}
+      skipParenthetical(szFunction,nPlace,nLen);
       if(szFunction[nPlace]=='s')
 	{ //sin function
 	  if(szFunction[nPlace+3]!='(')
@@ -244,24 +213,12 @@ FunNode * FunNode::parseString(std::string szFunction)
     }
   for(nPlace=0; nPlace<nLen; nPlace++)
     {
-      if(szFunction[nPlace]=='(')
-	{
-	  int inParen=1;
-	  nPlace++;
-	  while(inParen)
-	    {
-	      if(szFunction[nPlace]=='(')
-		inParen++;
-	      else if(szFunction[nPlace]==')')
-		inParen--;
-	      nPlace++;
-	    }
-	}
+      skipParenthetical(szFunction,nPlace,nLen);
       if(szFunction[nPlace]=='t')
 	{
 	  return new VarFunNode();
 	}
-      else if((szFunction[nPlace]>='0')&&(szFunction[nPlace]<='9'))
+      else if(((szFunction[nPlace]>='0')&&(szFunction[nPlace]<='9'))||(szFunction[nPlace]=='.'))
 	{ //is a number; read a double
 	  double dVal =
 	  atof(szFunction.substr(nPlace,szFunction.length()-nPlace).c_str());
