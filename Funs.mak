@@ -1,7 +1,6 @@
 FUNCCS = CosFunNode/CosFunNode.cc \
 DivFunNode/DivFunNode.cc \
 FunNode/FunNode.cc \
-FunParser/FunParser.cc \
 MultFunNode/MultFunNode.cc \
 NumFunNode/NumFunNode.cc \
 PowFunNode/PowFunNode.cc \

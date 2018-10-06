@@ -123,10 +123,9 @@ std::istream & FunOrientNodeGL::in(std::istream& is)
   is >> dt;
   is >> t;
   is >> tWrap;
-  FunParser parser;
-  xFun = parser.parseString(funX);
-  yFun = parser.parseString(funY);
-  zFun = parser.parseString(funZ);
+  xFun = FunNode.parseString(funX);
+  yFun = FunNode.parseString(funY);
+  zFun = FunNode.parseString(funZ);
   return is;
 }
 

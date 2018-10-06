@@ -73,11 +73,10 @@ void FunTransformNodeGL::ActionGL()
 std::istream & FunTransformNodeGL::in(std::istream& is)
 {
   string szFun;
-  FunParser parser;
   for(int i=0; i<16; i++)
     {
       is >> szFun;
-      myFuns[i]=parser.parseString(szFun);
+      myFuns[i]=FunNode.parseString(szFun);
     }
   is >> dt;
   is >> t;

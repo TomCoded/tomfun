@@ -8,7 +8,6 @@
 #include <Point3Df.h>
 #include <Transform4Dd.h>
 #include <NodeGL/NodeGL.h>
-#include <FunParser/FunParser.h>
 
 class FunTransformNodeGL : public NodeGL
 {

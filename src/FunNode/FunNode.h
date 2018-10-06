@@ -18,7 +18,7 @@ class FunNode
   ~FunNode();
 
   virtual FunNode * clone(void) {};
-  FunNode * parseString(std::string szFunction);
+  static FunNode * parseString(std::string szFunction);
 
   //assignment operator
   FunNode * operator=(FunNode& other);

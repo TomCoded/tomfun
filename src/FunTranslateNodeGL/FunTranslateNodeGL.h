@@ -8,7 +8,6 @@
 
 #include <NodeGL/NodeGL.h>
 #include <MaterialNodeGL/MaterialNodeGL.h>
-#include <FunParser/FunParser.h>
 #include <FunNode/FunNode.h>
 
 class FunTranslateNodeGL : public NodeGL
