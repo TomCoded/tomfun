@@ -1,9 +1,6 @@
+// -*- C++ -*-
 #ifndef FUNTRANSFORMNODEGL_H_
 #define FUNTRANSFORMNODEGL_H_
-//FunTransformNodeGL.h  -*- C++ -*-
-//
-//(C) 2002 Tom White
-// Holds the FunTransformNodeGL class declaration.
 
 #include <Point3Df.h>
 #include <Transform4Dd.h>

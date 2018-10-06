@@ -1,6 +1,4 @@
-// FunTransform4Dd.h (C) 2002 Tom White -*- C++ -*-
-//  contains class declaration for a 4-Dimensional transformation that
-//  contains functions of a double value, (t)
+// -*- C++ -*-
 
 #ifndef FUNTRANSFORM4DD_H_
 #define FUNTRANSFORM4DD_H_

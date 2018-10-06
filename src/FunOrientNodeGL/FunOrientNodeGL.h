@@ -1,10 +1,6 @@
+// -*- C++ -*-
 #ifndef FUNORIENTNODEGL_H_
 #define FUNORIENTNODEGL_H_
-
-//FunOrientNodeGL.h  -*- C++ -*-
-//
-//(C) 2002 Tom White
-// Holds the FunOrientNodeGL class declaration.
 
 #include <NodeGL/NodeGL.h>
 #include <MaterialNodeGL/MaterialNodeGL.h>

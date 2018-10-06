@@ -1,7 +1,6 @@
+// -*- C++ -*-
 #ifndef SINFUNNODE_H_
 #define SINFUNNODE_H_
-//SinFunNode.h (C) 2002 Tom White
-//returns sin(node)
 
 #include <FunNode.h>
 

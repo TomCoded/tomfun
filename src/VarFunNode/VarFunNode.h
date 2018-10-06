@@ -1,7 +1,6 @@
+// -*- C++ -*-
 #ifndef VARFUNNODE_H_
 #define VARFUNNODE_H_
-//VarFunNode.h (C) 2002 Tom White
-//holds the final Function node, where eval(t)=t
 
 #include <FunNode.h>
 

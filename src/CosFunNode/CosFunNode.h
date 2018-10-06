@@ -1,7 +1,5 @@
 #ifndef COSFUNNODE_H_
 #define COSFUNNODE_H_
-//CosFunNode.h (C) Tom White
-//returns cos(childNode)
 
 #include <FunNode.h>
 

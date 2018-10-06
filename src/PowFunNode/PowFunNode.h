@@ -1,7 +1,6 @@
+// -*- C++ -*-
 #ifndef POWFUNNODE_H_
 #define POWFUNNODE_H_
-//PowFunNode.h (C) 2002 Tom White
-//holds the final Function node, where eval(t)=t
 
 #include <FunNode.h>
 

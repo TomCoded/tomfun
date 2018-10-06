@@ -1,7 +1,5 @@
 #ifndef FUNNODE_H_
 #define FUNNODE_H_
-//FunNode.h (C) 2002 Tom White
-//Holds interface for all function classes
 
 #include <FunDefs.h>
 #include <iostream>

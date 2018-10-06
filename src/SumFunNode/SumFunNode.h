@@ -1,7 +1,6 @@
+// -*- C++ -*-
 #ifndef SUMFUNNODE_H_
 #define SUMFUNNODE_H_
-//SumFunNode.h (C) 2002 Tom White
-//sums two nodes
 
 #include <FunNode.h>
 

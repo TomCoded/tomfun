@@ -1,7 +1,6 @@
+// -*- C++ -*-
 #ifndef MULTFUNNODE_H_
 #define MULTFUNNODE_H_
-//MultFunNode.h (C) 2002 Tom White
-//multiplies two nodes
 
 #include <FunNode.h>
 
